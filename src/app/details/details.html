@@ -1,0 +1,40 @@
+<div class="container">
+    <h1>Details</h1>
+    <button ng-click="details.addDetail()">Add detail</button>
+    <table>
+        <tbody >
+        <tr>
+            <td>Article</td>
+            <td>Dimensions</td>
+            <td>Price</td>
+            <td>Measure</td>
+            <td>Stock</td>
+            <td>Actions</td>
+        </tr>
+        <tr ng-repeat="detail in details.details">
+            <td>{{detail.article}}</td>
+            <td>{{detail.width}} x {{detail.height}} x {{detail.length}} cm <br> Ø {{detail.radius}} cm</td>
+            <td>{{detail.price}}</td>
+            <td>{{detail.measure}}</td>
+            <td>
+                <table>
+                    <tr ng-repeat="stock in detail.details">
+                        <td></td>
+                        <td>{{stock.quantity}}</td>
+                    </tr>
+                    <tr ng-repeat="stock in detail.materials">
+                        <td></td>
+                        <td>{{stock.quantity}}</td>
+                    </tr>
+                </table>
+            </td>
+            <td>
+                <button ng-click="details.removeDetail(detail._id)">x</button>
+                <button ng-click="">V</button>
+                <button ng-click="">E</button>
+            </td>
+        </tr>
+        </tbody>
+
+    </table>
+</div>

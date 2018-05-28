@@ -19,23 +19,41 @@
           }
         }
       })
-
-
       .state('login', {
         url: '/login',
         templateUrl: 'app/login/login.html',
         controller: 'LoginController',
         controllerAs: 'login'
       })
-
-      .state('view-warehouse', {
-        url: '/view-warehouse',
-        templateUrl: 'app/warehouse/warehouse.html',
-        controller: 'WarehouseController',
-        controllerAs: 'warehouse',
+      .state('materials', {
+        url: '/materials',
+        templateUrl: 'app/materials/materials.html',
+        controller: 'MaterialsController',
+        controllerAs: 'materials',
         resolve: {
           'title': function ($rootScope) {
-            $rootScope.pageTitle = 'Обзор склада';
+            $rootScope.pageTitle = 'Materials';
+          }
+        }
+      })
+        .state('details', {
+        url: '/details',
+        templateUrl: 'app/details/details.html',
+        controller: 'DetailsController',
+        controllerAs: 'details',
+        resolve: {
+          'title': function ($rootScope) {
+            $rootScope.pageTitle = 'Details';
+          }
+        }
+      }).state('products', {
+        url: '/products',
+        templateUrl: 'app/products/products.html',
+        controller: 'ProductsController',
+        controllerAs: 'products',
+        resolve: {
+          'title': function ($rootScope) {
+            $rootScope.pageTitle = 'Products';
           }
         }
       })

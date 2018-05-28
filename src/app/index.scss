@@ -11,6 +11,8 @@ $icon-font-path: "../../bootstrap-sass/assets/fonts/bootstrap/";
 }
 
 @font-face {
+  font-family: "Roboto Medium", sans-serif;
+  src: url("../assets/fonts/Roboto-Medium.ttf");
 }
 /**
  *  Do not remove the comments below. It's the markers used by wiredep to inject
@@ -20,8 +22,39 @@ $icon-font-path: "../../bootstrap-sass/assets/fonts/bootstrap/";
 // endbower
 
 body {
+  background-color: rgb(243, 240, 245);
+  font-family: "Roboto",sans-serif;
 }
 
+.logo_main {
+  background-image: url(../assets/images/logo.png);
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  display: inline-block;
+  width: 65px;
+  height: 40px;
+}
+
+.logo_block {
+  background-color: rgb(85, 74, 82);
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  a {
+    color: rgb(243, 240, 245);
+    cursor: pointer;
+  }
+}
+
+table {
+  border-collapse: collapse;
+}
+
+table, td, th {
+  border: 1px solid black;
+  padding: 10px;
+}
 /**
  *  Do not remove the comments below. It's the markers used by gulp-inject to inject
  *  all your sass files automatically

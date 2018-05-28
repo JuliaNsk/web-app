@@ -30,9 +30,15 @@
     <!--</div>-->
 
     <!--<div id="content" class="content content-margin" >-->
-      <nav class="navbar navbar-static-top" role="navigation" ng-show="!test">
+      <nav class="navbar navbar-static-top" role="navigation">
         <div class="logo_block">
           <a ui-sref="home"><div class="logo_main"></div></a>
+          <div class="menu_block">
+            <a ui-sref="home">Home</a>
+            <a ui-sref="materials">Materials</a>
+            <a ui-sref="details">Details</a>
+            <a ui-sref="products">Products</a>
+          </div>
         </div>
       </nav>
       <div ui-view></div>

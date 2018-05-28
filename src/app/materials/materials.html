@@ -1,0 +1,40 @@
+<div class="container">
+    <h1>Materials</h1>
+    <button ng-click="materials.addMaterial()">Add material</button>
+    <table>
+        <tbody >
+        <tr>
+            <td>Article</td>
+            <td>Dimensions</td>
+            <td>Price</td>
+            <td>Measure</td>
+            <td>Stock</td>
+            <td>Actions</td>
+        </tr>
+        <tr ng-repeat="material in materials.materials">
+            <td>{{material.article}}</td>
+            <td>{{material.width}} x {{material.height}} x {{material.length}} cm <br> Ø {{material.radius}} cm</td>
+            <td>{{material.price}}</td>
+            <td>{{material.measure}}</td>
+            <td>
+                <table>
+                    <tr>
+                        <td>Ordinary</td>
+                        <td>{{material.stock.ordinary}}</td>
+                    </tr>
+                    <tr>
+                        <td>Improved</td>
+                        <td>{{material.stock.improved}}</td>
+                    </tr>
+                </table>
+            </td>
+            <td>
+                <button ng-click="materials.removeMaterial(material._id)">x</button>
+                <button ng-click="">V</button>
+                <button ng-click="">E</button>
+            </td>
+        </tr>
+        </tbody>
+
+    </table>
+</div>

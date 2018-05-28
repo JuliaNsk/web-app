@@ -1,0 +1,40 @@
+<div class="container">
+    <h1>Products</h1>
+    <button ng-click="products.addProduct(product._id)">Add product</button>
+    <table>
+        <tbody >
+            <tr>
+                <td>Article</td>
+                <td>Dimensions</td>
+                <td>Price</td>
+                <td>Measure</td>
+                <td>Stock</td>
+                <td>Actions</td>
+            </tr>
+            <tr ng-repeat="product in products.products">
+                <td>{{product.article}}</td>
+                <td>{{product.width}} x {{product.height}} x {{product.length}} cm <br> Ø {{product.radius}} cm</td>
+                <td>{{product.price}}</td>
+                <td>{{product.measure}}</td>
+                <td>
+                    <table>
+                        <tr ng-repeat="stock in product.details">
+                            <td></td>
+                            <td>{{stock.quantity}}</td>
+                        </tr>
+                        <tr ng-repeat="stock in product.materials">
+                            <td></td>
+                            <td>{{stock.quantity}}</td>
+                        </tr>
+                    </table>
+                </td>
+                <td>
+                    <button ng-click="products.removeProduct(product._id)">x</button>
+                    <button ng-click="">V</button>
+                    <button ng-click="">E</button>
+                </td>
+            </tr>
+        </tbody>
+
+    </table>
+</div>
