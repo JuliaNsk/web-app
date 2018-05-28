@@ -2,7 +2,7 @@
   'use strict';
 
   angular
-    .module('newWebApp')
+    .module('Blacksmith')
     .controller('MainController', MainController);
 
   /** @ngInject */

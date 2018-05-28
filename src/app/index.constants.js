@@ -3,7 +3,7 @@
   'use strict';
 
   angular
-    .module('newWebApp')
+    .module('Blacksmith')
     .constant('malarkey', malarkey)
     .constant('moment', moment);
 
