@@ -1,4 +1,53 @@
 <div class="container">
     <h1>Add Details</h1>
+    <form class="form-horizontal">
+        <input type="file" nv-file-select uploader="uploader"/><br/>
+        <ul>
+            <li ng-repeat="item in uploader.queue">
+                Name: <span ng-bind="item.file.name"></span><br/>
+                <div ng-thumb="{ file: item._file, height: 200 }"></div>
+                <button ng-click="addDetails.upload(item._file)">Add image</button>
+            </li>
+        </ul>
 
+        <div class="form-group">
+            <label for="photo">Photo:</label>
+            <input type="text" class="form-control" id="photo" ng-model="addDetails.detail.image">
+        </div>
+        <div>
+            <img ng-src="{{addDetails.detail.image}}" />
+        </div>
+        <div class="form-group">
+            <label for="article">Article:</label>
+            <input type="text" class="form-control" id="article" ng-model="addDetails.detail.article">
+        </div>
+        <div class="form-group">
+            <label for="article">Measure:</label>
+            <input type="text" class="form-control" id="measure" ng-model="addDetails.detail.measure">
+        </div>
+        <div class="form-group">
+            <label for="width">Width:</label>
+            <div counter  id="width" value="addDetails.detail.width" ng-model="addDetails.detail.width" min="0"></div>
+        </div>
+        <div class="form-group">
+            <label for="width">Height:</label>
+            <div counter  id="height" value="addDetails.detail.height" ng-model="addDetails.detail.height" min="0"></div>
+        </div>
+        <div class="form-group">
+            <label for="length">length:</label>
+            <div counter  id="length" value="addDetails.detail.length" ng-model="addDetails.detail.length" min="0"></div>
+        </div>
+        <div class="form-group">
+            <label for="radius">Radius:</label>
+            <div counter  id="radius" value="addDetails.detail.radius" ng-model="addDetails.detail.radius" min="0"></div>
+        </div>
+
+        <div class="form-group">
+            <label for="name">Name:</label>
+            <textarea type="text" class="form-control" id="name" ng-model="addDetails.detail.name"></textarea>
+        </div>
+
+        <button type="submit" class="btn btn-default" ng-click="addDetails.add()">Submit</button>
+    </form>
 </div>
+<div growl></div>

@@ -116,6 +116,16 @@
             $rootScope.pageTitle = 'Edit Products';
           }
         }
+      }).state('calculate', {
+        url: '/calculate',
+        templateUrl: 'app/calculate/calculate.html',
+        controller: 'CalculateController',
+        controllerAs: 'calculate',
+        resolve: {
+          'title': function ($rootScope) {
+            $rootScope.pageTitle = 'Calculate';
+          }
+        }
       })
 
     $urlRouterProvider.otherwise('/');

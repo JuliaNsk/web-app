@@ -13,7 +13,6 @@
     function getProductsList() {
       return products.getProductsList({tags: '5b05b900cd3dd77faefb3f74'})
         .then(function (products) {
-          console.log(products);
           vm.products = products;
         })
         .catch(function (err) {

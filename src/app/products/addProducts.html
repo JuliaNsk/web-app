@@ -1,4 +1,84 @@
 <div class="container">
     <h1> Add Products</h1>
+    <form class="form-horizontal">
+        <input type="file" nv-file-select uploader="uploader"/><br/>
+        <ul>
+            <li ng-repeat="item in uploader.queue">
+                Name: <span ng-bind="item.file.name"></span><br/>
+                <div ng-thumb="{ file: item._file, height: 200 }"></div>
+                <button ng-click="addProducts.upload(item._file)">Add image</button>
+            </li>
+        </ul>
 
+        <div class="form-group">
+            <label for="photo">Photo:</label>
+            <input type="text" class="form-control" id="photo" ng-model="addProducts.product.image">
+        </div>
+        <div>
+            <img ng-src="{{addProducts.product.image}}" />
+        </div>
+        <div class="form-group">
+            <label for="article">Article:</label>
+            <input type="text" class="form-control" id="article" ng-model="addProducts.product.article">
+        </div>
+        <div class="form-group">
+            <label for="article">Measure:</label>
+            <input type="text" class="form-control" id="measure" ng-model="addProducts.product.measure">
+        </div>
+        <div class="form-group">
+            <label for="width">Width:</label>
+            <div counter  id="width" value="addProducts.product.width" ng-model="addProducts.product.width" min="0"></div>
+        </div>
+        <div class="form-group">
+            <label for="width">Height:</label>
+            <div counter  id="height" value="addProducts.product.height" ng-model="addProducts.product.height" min="0"></div>
+        </div>
+        <div class="form-group">
+            <label for="length">length:</label>
+            <div counter  id="length" value="addProducts.product.length" ng-model="addProducts.product.length" min="0"></div>
+        </div>
+        <div class="form-group">
+            <label for="radius">Radius:</label>
+            <div counter  id="radius" value="addProducts.product.radius" ng-model="addProducts.product.radius" min="0"></div>
+        </div>
+
+        <div class="form-group">
+            <label for="name">Name:</label>
+            <textarea type="text" class="form-control" id="name" ng-model="addProducts.product.name"></textarea>
+        </div>
+
+        <div class="form-group">
+            <label for="name">Price:</label>
+            <input type="number" class="form-control" id="price" ng-model="addProducts.product.price">
+        </div>
+
+        <div class="form-group">
+            <label for="name">Stock:</label>
+            <input type="number" class="form-control" id="stock" ng-model="addProducts.product.stock">
+        </div>
+
+
+
+        <div class="form-group" data-ng-repeat="material in materials">
+            <button ng-show="showAddMaterial(material)" ng-click="addNewMaterial()">Add Material</button>
+            <button ng-click="removeNewMaterial()">Remove Material</button>
+            <select ng-modal="{{material.name}}">
+                <option ng-repeat="option in addProducts.materialsList" value="{{option.id}}">{{option.name}}</option>
+            </select>
+        </div>
+        <div class="form-group" data-ng-repeat="detail in details">
+            <button ng-show="showAddDetail(detail)" ng-click="addNewDetail()">Add Detail</button>
+            <button ng-click="removeNewDetail()">Remove Detail</button>
+            <select ng-modal="{{detail.name}}">
+                <option ng-repeat="option in addProducts.detailsList" value="{{option.id}}">{{option.name}}</option>
+            </select>
+        </div>
+
+
+
+
+        <button type="submit" class="btn btn-default" ng-click="addProducts.add()">Submit</button>
+    </form>
 </div>
+<div growl></div>
+
