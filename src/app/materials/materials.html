@@ -1,40 +1,49 @@
 <div class="container">
-    <h1>Materials</h1>
-    <a ui-sref="add-materials">Add material</a>
-    <table>
-        <tbody >
-        <tr>
-            <td>Article</td>
-            <td>Dimensions</td>
-            <td>Price</td>
-            <td>Measure</td>
-            <td>Stock</td>
-            <td>Actions</td>
-        </tr>
-        <tr ng-repeat="material in materials.materials">
-            <td>{{material.article}}</td>
-            <td>{{material.width}} x {{material.height}} x {{material.length}} cm <br> Ø {{material.radius}} cm</td>
-            <td>{{material.price}}</td>
-            <td>{{material.measure}}</td>
-            <td>
-                <table>
-                    <tr>
-                        <td>Ordinary</td>
-                        <td>{{material.stock.ordinary}}</td>
-                    </tr>
-                    <tr>
-                        <td>Improved</td>
-                        <td>{{material.stock.improved}}</td>
-                    </tr>
-                </table>
-            </td>
-            <td>
-                <button ng-click="materials.removeMaterial(material._id)">x</button>
-                <button ng-click="">V</button>
-                <button ng-click="">E</button>
-            </td>
-        </tr>
-        </tbody>
+    <h1 class="page-title">Materials</h1>
 
-    </table>
+    <div class="filter-block">
+        <h3>Materials overview:</h3>
+
+        <a ui-sref="add-materials" class="add-materials">Add material <i class="fa fa-plus"></i></a>
+    </div>
+
+    <div class="table-wrapper">
+        <table class="main-table">
+            <thead>
+                <tr>
+                    <td>Article</td>
+                    <td>Dimensions</td>
+                    <td>Price</td>
+                    <td>Measure</td>
+                    <td>Stock</td>
+                    <td>Actions</td>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="material in materials.materials">
+                    <td><a>{{material.article}}</a></td>
+                    <td>{{material.width}} x {{material.height}} x {{material.length}} cm <br> Ø {{material.radius}} cm</td>
+                    <td class="text-right">{{material.price}}</td>
+                    <td>{{material.measure}}</td>
+                    <td>
+                        <table>
+                            <tr>
+                                <td class="dotteds">Ordinary</td>
+                                <td>{{material.stock.ordinary}}</td>
+                            </tr>
+                            <tr>
+                                <td class="dotteds">Improved</td>
+                                <td>{{material.stock.improved}}</td>
+                            </tr>
+                        </table>
+                    </td>
+                    <td>
+                        <button ng-click="materials.removeMaterial(material._id)"><i class="fa fa-trash"></i></button>
+                        <button class="circle" ng-click=""><i class="fa fa-circle"></i></button>
+                        <button class="edit" ng-click=""><i class="fa fa-pencil"></i></button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
 </div>

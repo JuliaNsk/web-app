@@ -45,15 +45,85 @@ body {
     color: rgb(243, 240, 245);
     cursor: pointer;
   }
+  .menu_block {
+    a {
+      padding: 5px 15px;
+      font-weight: bold;
+    }
+  }
+}
+
+.table-wrapper{
+  height: calc(100vh - 350px);
+  overflow: scroll;
+  width: 100%;
 }
 
 table {
   border-collapse: collapse;
+  width: 100%;
 }
 
 table, td, th {
-  border: 1px solid black;
+  border: none;
   padding: 10px;
+  vertical-align: top;
+}
+
+table thead tr:first-child {
+  font-weight: bold;
+}
+table.main-table > tbody > tr,
+table.main-table > thead > tr {
+  border-bottom: 1px solid rgb(223, 224, 224);
+}
+
+table.main-table{
+  td {
+    &.text-right{
+      text-align: right;
+    }
+    &.dotteds{
+      max-width: 200px;
+      overflow: hidden;
+      position: relative;
+      &:after {
+        width: 0;
+        bottom: 10px;
+        color: rgb(180, 180, 180);
+        font-size: 12px;
+        white-space: nowrap;
+        position: absolute;
+        content:". . . . . . . . . . . . . . . . . . . . . . . . . . . . "
+      }
+    }
+
+
+    button {
+      padding: 0px 10px;
+      background: inherit;
+      border: 1px solid #dfe0e0;;
+      box-shadow: none;
+    }
+  }
+}
+table {
+  td {
+    button {
+      &.circle, &.edit{
+        margin-left: -5px;
+      }
+      &:hover{
+        color: red;
+      }
+    }
+    button:first-child{
+      border-radius: 5px 0 0 5px;
+    }
+    button:last-child{
+      border-radius: 0 5px 5px 0;
+    }
+  }
 }
 
 .counter-container .counter-minus, .counter-plus {
@@ -62,19 +132,147 @@ table, td, th {
   -ms-user-select: none;
   user-select: none;
 
-  background: #333;
-  color: white;
+  background: inherit;
+  color: #333;
   margin: 0;
   padding: 5px 10px;
   text-decoration: none;
+  border: 1px solid rgb(210, 210, 210);
+}
+.counter-plus{
+  border-radius: 0 5px 5px 0;
+}
+.counter-minus{
+  border-radius: 5px 0 0 5px;
 }
 
 .counter-container .counter-field {
   margin: 0;
-  padding: 5px;
+  padding: 3px;
   text-align: center;
   width: 40px;
+  border: 1px solid rgb(210, 210, 210);
+  margin-right: -5px;
+  margin-left: -5px;
 }
+
+.fa-trash-o:before{
+  font-family: 'FontAwesome';
+  content: "\f014";
+  display: inline-block;
+  padding-right: 3px;
+  vertical-align: middle;
+}
+
+.page-title {
+  margin-bottom: 40px;
+  padding-left: 30px;
+  position: relative;
+}
+.page-title:before {
+  content: '';
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  display: block;
+  left: 0;
+  top: 8px;
+  background: rgb(0, 49, 57);
+  border-radius: 50%;
+}
+
+.filter-block {
+  width: 100%;
+  float: left;
+  margin-bottom: 20px;
+
+  a.add-materials {
+    padding: 8px 15px;
+    background: #fff;
+    border: 1px solid rgb(208, 209, 212);
+    border-radius: 3px;
+    color: #333;
+    float: right;
+
+    i {
+      margin-left: 10px;
+      color: rgb(208, 209, 212);
+    }
+
+    &:hover{
+      text-decoration: none;
+      background: rgb(208, 209, 212);
+
+      i {
+        color: #fff;
+      }
+    }
+  }
+}
+
+.product-description {
+  width: 280px;
+  height: calc(100vh - 200px);
+  overflow-x: scroll;
+  float: left;
+
+  h4 {
+    font-weight: lighter;
+  }
+
+  .form-horizontal{
+    .form-group{
+      margin-left: 0px;
+      margin-right: 0px;
+    }
+
+    .form-control {
+      background: inherit;
+      box-shadow: none;
+    }
+  }
+
+  .add-image{
+    padding: 0;
+
+    button {
+      width: 100%;
+      background-color: #fff;
+      box-shadow: none;
+      border-radius: 5px;
+      padding: 5px;
+    }
+  }
+
+  .count-group{
+    label {
+      width: 100px;
+    }
+    .counter-container{
+      display: inline-block;
+    }
+  }
+}
+
+.product-composition{
+  padding: 10px 15px;
+  float: left;
+  width: calc(100% - 300px);
+  height: calc(100vh - 200px);
+  background: #fff;
+  margin-left: 20px;
+
+  h4 {
+    font-weight: lighter;
+    padding-bottom: 5px;
+    border-bottom: 1px solid rgb(210, 210, 210);
+  }
+}
+
+
+
+
+
 
 /**
  *  Do not remove the comments below. It's the markers used by gulp-inject to inject

@@ -1,40 +1,51 @@
 <div class="container">
-    <h1>Details</h1>
-    <a ui-sref="add-details">Add detail</a>
-    <table>
-        <tbody >
-        <tr>
-            <td>Article</td>
-            <td>Dimensions</td>
-            <td>Price</td>
-            <td>Measure</td>
-            <td>Stock</td>
-            <td>Actions</td>
-        </tr>
-        <tr ng-repeat="detail in details.details">
-            <td>{{detail.article}}</td>
-            <td>{{detail.width}} x {{detail.height}} x {{detail.length}} cm <br> Ø {{detail.radius}} cm</td>
-            <td>{{detail.price}}</td>
-            <td>{{detail.measure}}</td>
-            <td>
-                <table>
-                    <tr ng-repeat="stock in detail.details">
-                        <td></td>
-                        <td>{{stock.quantity}}</td>
-                    </tr>
-                    <tr ng-repeat="stock in detail.materials">
-                        <td></td>
-                        <td>{{stock.quantity}}</td>
-                    </tr>
-                </table>
-            </td>
-            <td>
-                <button ng-click="details.removeDetail(detail._id)">x</button>
-                <button ng-click="">V</button>
-                <button ng-click="">E</button>
-            </td>
-        </tr>
-        </tbody>
+    <h1 class="page-title">Details</h1>
 
-    </table>
+    <div class="filter-block">
+        <h3>Details overview:</h3>
+
+        <a ui-sref="add-details" class="add-materials">Add detail <i class="fa fa-plus"></i></a>
+
+    </div>
+
+
+    <div class="table-wrapper">
+        <table class="main-table">
+            <thead>
+                <tr>
+                    <td>Article</td>
+                    <td>Dimensions</td>
+                    <td>Price</td>
+                    <td>Measure</td>
+                    <td>Stock</td>
+                    <td>Actions</td>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="detail in details.details">
+                    <td>{{detail.article}}</td>
+                    <td>{{detail.width}} x {{detail.height}} x {{detail.length}} cm <br> Ø {{detail.radius}} cm</td>
+                    <td>{{detail.price}}</td>
+                    <td>{{detail.measure}}</td>
+                    <td>
+                        <table>
+                            <tr ng-repeat="stock in detail.details">
+                                <td></td>
+                                <td>{{stock.quantity}}</td>
+                            </tr>
+                            <tr ng-repeat="stock in detail.materials">
+                                <td></td>
+                                <td>{{stock.quantity}}</td>
+                            </tr>
+                        </table>
+                    </td>
+                    <td>
+                        <button ng-click="details.removeDetail(detail._id)"><i class="fa fa-trash"></i></button>
+                        <button class="circle" ng-click=""><i class="fa fa-circle"></i></button>
+                        <button class="edit" ng-click=""><i class="fa fa-pencil"></i></button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
 </div>

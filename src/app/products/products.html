@@ -1,40 +1,49 @@
 <div class="container">
-    <h1>Products</h1>
-    <a ui-sref="add-products">Add product</a>
-    <table>
-        <tbody >
-            <tr>
-                <td>Article</td>
-                <td>Dimensions</td>
-                <td>Price</td>
-                <td>Measure</td>
-                <td>Stock</td>
-                <td>Actions</td>
-            </tr>
-            <tr ng-repeat="product in products.products">
-                <td>{{product.article}}</td>
-                <td>{{product.width}} x {{product.height}} x {{product.length}} cm <br> Ø {{product.radius}} cm</td>
-                <td>{{product.price}}</td>
-                <td>{{product.measure}}</td>
-                <td>
-                    <table>
-                        <tr ng-repeat="stock in product.details">
-                            <td></td>
-                            <td>{{stock.quantity}}</td>
-                        </tr>
-                        <tr ng-repeat="stock in product.materials">
-                            <td></td>
-                            <td>{{stock.quantity}}</td>
-                        </tr>
-                    </table>
-                </td>
-                <td>
-                    <button ng-click="products.removeProduct(product._id)">x</button>
-                    <button ng-click="">V</button>
-                    <button ng-click="">E</button>
-                </td>
-            </tr>
-        </tbody>
+    <h1 class="page-title">Products</h1>
 
-    </table>
+    <div class="filter-block">
+        <h3>Products overview:</h3>
+
+        <a ui-sref="add-products" class="add-materials">Add product <i class="fa fa-plus"></i></a>
+    </div>
+
+    <div class="table-wrapper">
+        <table class="main-table">
+            <thead>
+                <tr>
+                    <td>Article</td>
+                    <td>Dimensions</td>
+                    <td>Price</td>
+                    <td>Measure</td>
+                    <td>Stock</td>
+                    <td>Actions</td>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="product in products.products">
+                    <td>{{product.article}}</td>
+                    <td>{{product.width}} x {{product.height}} x {{product.length}} cm <br> Ø {{product.radius}} cm</td>
+                    <td>{{product.price}}</td>
+                    <td>{{product.measure}}</td>
+                    <td>
+                        <table>
+                            <tr ng-repeat="stock in product.details">
+                                <td></td>
+                                <td>{{stock.quantity}}</td>
+                            </tr>
+                            <tr ng-repeat="stock in product.materials">
+                                <td></td>
+                                <td>{{stock.quantity}}</td>
+                            </tr>
+                        </table>
+                    </td>
+                    <td>
+                        <button ng-click="products.removeProduct(product._id)"><i class="fa fa-trash"></i></button>
+                        <button class="circle" ng-click=""><i class="fa fa-circle"></i></button>
+                        <button class="edit" ng-click=""><i class="fa fa-pencil"></i></button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
 </div>

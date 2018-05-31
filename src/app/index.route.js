@@ -35,7 +35,17 @@
             $rootScope.pageTitle = 'Materials';
           }
         }
-      }).state('add-materials', {
+      }).state('material', {
+        url: '/material/{id}',
+        templateUrl: 'app/materials/material.html',
+        controller: 'MaterialController',
+        controllerAs: 'material',
+        resolve: {
+          'title': function ($rootScope) {
+            $rootScope.pageTitle = 'Material';
+            }
+          }
+        }).state('add-materials', {
         url: '/add-materials',
         templateUrl: 'app/materials/addMaterials.html',
         controller: 'AddMaterialsController',
