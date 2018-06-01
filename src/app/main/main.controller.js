@@ -6,7 +6,7 @@
     .controller('MainController', MainController);
 
   /** @ngInject */
-  function MainController(test, $timeout) {
+  function MainController($timeout) {
     var vm = this;
     getTestList();
     function getTestList() {

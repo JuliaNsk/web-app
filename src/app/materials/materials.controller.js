@@ -6,8 +6,10 @@
     .controller('MaterialsController', MaterialsController);
 
   /** @ngInject */
-  function MaterialsController(materials, $timeout) {
-    var vm = this;
+  function MaterialsController(materials, $rootScope) {
+    let vm = this;
+
+    console.log($rootScope)
     getMaterialsList();
     function getMaterialsList() {
       return materials.getMaterialsList()
