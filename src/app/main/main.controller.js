@@ -7,7 +7,7 @@
 
   /** @ngInject */
   function MainController($timeout) {
-    var vm = this;
+    let vm = this;
     getTestList();
     function getTestList() {
       return test.getTestList()

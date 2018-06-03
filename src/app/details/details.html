@@ -17,6 +17,7 @@
                     <td>Dimensions</td>
                     <td>Price</td>
                     <td>Measure</td>
+                    <td>Quantity</td>
                     <td>Stock</td>
                     <td>Actions</td>
                 </tr>
@@ -27,22 +28,23 @@
                     <td>{{detail.width}} x {{detail.height}} x {{detail.length}} cm <br> Ø {{detail.radius}} cm</td>
                     <td>{{detail.price}}</td>
                     <td>{{detail.measure}}</td>
+                    <td counter  id="length" value="detail.stock"
+                        ng-model="detail.stock"
+                        ng-click="details.editStock(detail)"
+                        min="0"></td>
+
                     <td>
                         <table>
-                            <tr ng-repeat="stock in detail.details">
-                                <td></td>
-                                <td>{{stock.quantity}}</td>
-                            </tr>
-                            <tr ng-repeat="stock in detail.materials">
-                                <td></td>
-                                <td>{{stock.quantity}}</td>
+                            <tr>
+                                <td class="dotteds">Ordinary</td>
                             </tr>
                         </table>
+
                     </td>
                     <td>
                         <button ng-click="details.removeDetail(detail._id)"><i class="fa fa-trash"></i></button>
-                        <button class="circle" ng-click=""><i class="fa fa-circle"></i></button>
-                        <button class="edit" ng-click=""><i class="fa fa-pencil"></i></button>
+                        <button class="circle" ui-sref="detail({id: detail._id})"><i class="fa fa-circle"></i></button>
+                        <button class="edit" ui-sref="edit-details({id: detail._id})"><i class="fa fa-pencil"></i></button>
                     </td>
                 </tr>
             </tbody>

@@ -6,10 +6,10 @@
         .controller('AddDetailsController', AddDetailsController);
 
     /** @ngInject */
-    function AddDetailsController(products, $state, FileUploader, $scope, growl) {
-        var vm = this;
+    function AddDetailsController(products, $state, FileUploader, $scope, growl, tag) {
+        let vm = this;
         let uploader = $scope.uploader = new FileUploader({});
-
+        let categories = tag.tagsList();
         uploader.onAfterAddingFile = function (fileItem) {
             console.info('onAfterAddingFile', fileItem);
         };
@@ -38,7 +38,7 @@
 
         function addTagToProduct(id) {
 
-            return products.addTagToProduct({productId: id, tagId: '5b05d3da32a24f1577877cad'})
+            return products.addTagToProduct({productId: id, tagId: categories.detail})
                 .then(function (detail) {
                     $state.go('details')
                 })

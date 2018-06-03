@@ -6,12 +6,13 @@
     .controller('ProductsController', ProductsController);
 
   /** @ngInject */
-  function ProductsController(products, materials) {
+  function ProductsController(products, tag, $state) {
     let vm = this;
+    let categories = tag.tagsList();
     getProductsList();
 
     function getProductsList() {
-      return products.getProductsList({tags: '5b05b900cd3dd77faefb3f74'})
+      return products.getProductsList({tags: categories.product})
         .then(function (products) {
           vm.products = products;
         })
@@ -28,8 +29,17 @@
             .catch(function (err) {
                 console.log(err)
             })
-    }
+    };
 
+    vm.editStock = function (detail) {
+      return products.changeStockNumber({productId: detail._id, change: detail.stock})
+          .then(function (material) {
+          })
+          .catch(function (err) {
+            console.log(err)
+          })
+
+    }
     // function getMaterialsList() {
     //     // return materials.getMaterialsList()
     //     //     .then(function (materials) {

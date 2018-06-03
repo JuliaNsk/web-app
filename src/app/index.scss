@@ -216,6 +216,10 @@ table {
   overflow-x: scroll;
   float: left;
 
+  &.-full {
+    width: 100%;
+  }
+
   h4 {
     font-weight: lighter;
   }

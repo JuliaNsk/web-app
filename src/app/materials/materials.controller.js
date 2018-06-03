@@ -6,10 +6,9 @@
     .controller('MaterialsController', MaterialsController);
 
   /** @ngInject */
-  function MaterialsController(materials, $rootScope) {
+  function MaterialsController(materials, growl) {
     let vm = this;
 
-    console.log($rootScope)
     getMaterialsList();
     function getMaterialsList() {
       return materials.getMaterialsList()
@@ -17,18 +16,29 @@
             vm.materials = materials;
         })
         .catch(function (err) {
-          console.log(err)
+          growl.error(err.data.message,  {title: 'ERROR:', ttl: 1000});
         })
     }
 
     vm.removeMaterial = function (id) {
-        return materials.deleteMaterial({id: id})
-            .then(function (materials) {
-                getMaterialsList()
-            })
-            .catch(function (err) {
-                console.log(err)
-            })
+      return materials.deleteMaterial({id: id})
+        .then(function (materials) {
+          getMaterialsList()
+        })
+        .catch(function (err) {
+          growl.error(err.data.message,  {title: 'ERROR:', ttl: 1000});
+        })
+    };
+
+    vm.editStock = function (material) {
+      return materials.editMaterial(material)
+          .then(function (material) {
+            $state.go('materials')
+          })
+          .catch(function (err) {
+            console.log(err)
+          })
+
     }
   }
 })();

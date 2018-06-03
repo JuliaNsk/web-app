@@ -25,22 +25,14 @@
                     <td>{{product.width}} x {{product.height}} x {{product.length}} cm <br> Ø {{product.radius}} cm</td>
                     <td>{{product.price}}</td>
                     <td>{{product.measure}}</td>
-                    <td>
-                        <table>
-                            <tr ng-repeat="stock in product.details">
-                                <td></td>
-                                <td>{{stock.quantity}}</td>
-                            </tr>
-                            <tr ng-repeat="stock in product.materials">
-                                <td></td>
-                                <td>{{stock.quantity}}</td>
-                            </tr>
-                        </table>
-                    </td>
+                    <td counter  id="length" value="product.stock"
+                        ng-model="product.stock"
+                        ng-click="products.editStock(product)"
+                        min="0"></td>
                     <td>
                         <button ng-click="products.removeProduct(product._id)"><i class="fa fa-trash"></i></button>
-                        <button class="circle" ng-click=""><i class="fa fa-circle"></i></button>
-                        <button class="edit" ng-click=""><i class="fa fa-pencil"></i></button>
+                        <button class="circle" ui-sref="product({id: product._id})"><i class="fa fa-circle"></i></button>
+                        <button class="edit" ui-sref="edit-products({id: product._id})"><i class="fa fa-pencil"></i></button>
                     </td>
                 </tr>
             </tbody>

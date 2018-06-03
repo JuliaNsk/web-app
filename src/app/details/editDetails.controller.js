@@ -6,17 +6,31 @@
     .controller('EditDetailsController', EditDetailsController);
 
   /** @ngInject */
-  function EditDetailsController(materials, $timeout) {
-    var vm = this;
-    getMaterialsList();
-    function getMaterialsList() {
-      return materials.getMaterialsList()
-        .then(function (materials) {
-            vm.materials = materials;
-        })
-        .catch(function (err) {
-          console.log(err)
-        })
+  function EditDetailsController(products, $state, $stateParams) {
+    let vm = this;
+    let currentId = $stateParams.id;
+
+    getDetail();
+
+    function getDetail() {
+      return products.getProduct({id: currentId})
+          .then(function (detail) {
+            vm.detail = detail;
+            vm.detail.price = parseFloat(vm.detail.price);
+          })
+          .catch(function (err) {
+            console.log(err)
+          })
+    }
+
+    vm.edit = function () {
+      return products.ediProduct(vm.detail)
+          .then(function (detail) {
+            $state.go('details')
+          })
+          .catch(function (err) {
+            console.log(err)
+          })
     }
 
 

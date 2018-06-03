@@ -56,7 +56,7 @@
           }
         }
       }).state('edit-materials', {
-        url: '/edit-materials',
+        url: '/edit-materials/:id',
         templateUrl: 'app/materials/editMaterials.html',
         controller: 'EditMaterialsController',
         controllerAs: 'editMaterials',
@@ -76,6 +76,16 @@
             $rootScope.pageTitle = 'Details';
           }
         }
+      }) .state('detail', {
+        url: '/detail/:id',
+        templateUrl: 'app/details/detail.html',
+        controller: 'DetailController',
+        controllerAs: 'detail',
+        resolve: {
+          'title': function ($rootScope) {
+            $rootScope.pageTitle = 'Details';
+          }
+        }
       }) .state('add-details', {
         url: '/add-details',
         templateUrl: 'app/details/addDetails.html',
@@ -87,7 +97,7 @@
           }
         }
       }).state('edit-details', {
-        url: '/edit-details',
+        url: '/edit-details/:id',
         templateUrl: 'app/details/editDetails.html',
         controller: 'EditDetailsController',
         controllerAs: 'editDetails',
@@ -106,6 +116,16 @@
             $rootScope.pageTitle = 'Products';
           }
         }
+      }).state('product', {
+        url: '/product/:id',
+        templateUrl: 'app/products/product.html',
+        controller: 'ProductController',
+        controllerAs: 'product',
+        resolve: {
+          'title': function ($rootScope) {
+            $rootScope.pageTitle = 'Products';
+          }
+        }
       }).state('add-products', {
         url: '/add-products',
         templateUrl: 'app/products/addProducts.html',
@@ -117,7 +137,7 @@
           }
         }
       }).state('edit-products', {
-        url: '/edit-products',
+        url: '/edit-products/:id',
         templateUrl: 'app/products/editProducts.html',
         controller: 'EditProductsController',
         controllerAs: 'editProducts',

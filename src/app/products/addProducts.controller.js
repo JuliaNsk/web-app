@@ -6,8 +6,10 @@
         .controller('AddProductsController', AddProductsController);
 
     /** @ngInject */
-    function AddProductsController(products, $state, FileUploader, $scope, growl, materials) {
+    function AddProductsController(products, $state, FileUploader, $scope, growl, materials, tag) {
         let vm = this;
+        let categories = tag.tagsList();
+
 
         getMaterials().then(getDetails());
 
@@ -83,7 +85,7 @@
         }
 
         function getDetails() {
-            return products.getProductsList({tags: '5b05d3da32a24f1577877cad'})
+            return products.getProductsList({tags: categories.detail})
                 .then(function (details) {
                     vm.detailsList = details;
                 })
@@ -93,7 +95,7 @@
         }
 
         function addTagToProduct(id) {
-            return products.addTagToProduct({productId: id, tagId: '5b05b900cd3dd77faefb3f74'})
+            return products.addTagToProduct({productId: id, tagId: categories.product})
                 .then(function (product) {
                     $state.go('products')
                 })

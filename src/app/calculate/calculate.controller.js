@@ -6,13 +6,15 @@
     .controller('CalculateController', CalculateController);
 
   /** @ngInject */
-  function CalculateController(products, $scope) {
+  function CalculateController(products, $scope,tag) {
     let vm = this;
+    let categories = tag.tagsList();
+
       getProductsList();
       vm.quantity = 0;
 
       function getProductsList() {
-          return products.getProductsList({tags: '5b05b900cd3dd77faefb3f74'})
+          return products.getProductsList({tags: categories.product})
               .then(function (products) {
                   vm.productsList = products;
               })
@@ -24,7 +26,7 @@
       vm.calculate = function () {
           return products.estimateProduct({productId: $scope.selected, quantity: vm.quantity})
               .then(function (result) {
-                 console.log(result)
+                 vm.result = result;
               })
               .catch(function (err) {
                   console.log(err)

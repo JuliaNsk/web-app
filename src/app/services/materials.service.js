@@ -37,7 +37,7 @@
     }
 
     function editMaterial(params) {
-      return $http.put('http://54.158.129.206:8080/material/' + params.id, params)
+      return $http.put('http://54.158.129.206:8080/material/' + params._id, params)
         .then(function (response) {
           return response.data.data;
         });

@@ -1,0 +1,38 @@
+<div class="container">
+    <h1 class="page-title">detail - {{detail.detail.name}}</h1>
+
+    <div class="product-description">
+
+        <h4>details description</h4>
+
+        <form class="form-horizontal">
+            <div>
+                <img ng-src="{{detail.detail.image}}" />
+            </div>
+
+            <div class="form-group">
+                <label for="article">Article:</label>
+                <input type="text" class="form-control" id="article" ng-model="detail.detail.article" disabled>
+            </div>
+            <div class="form-group">
+                <label for="article">Dimensions:</label>
+                <div>{{detail.detail.width || 0}} x {{detail.detail.height || 0}} x {{detail.detail.length || 0}} cm <br> Ø {{detail.detail.radius || 0}} cm</div>
+            </div>
+
+            <div class="form-group">
+                <label for="name">Name:</label>
+                <textarea type="text" class="form-control" id="name" ng-model="detail.detail.name" disabled></textarea>
+            </div>
+
+        </form>
+
+
+    </div>
+    <div class="product-composition">
+
+        <h4>Detail composition</h4>
+
+    </div>
+
+</div>
+

@@ -1,6 +1,57 @@
 <div class="container">
-    <h1 class="page-title">Material</h1>
+    <h1 class="page-title">Material - {{material.material.name}}</h1>
 
+    <div class="product-description -full">
+
+        <h4>Materials description</h4>
+
+        <form class="form-horizontal">
+            <div>
+                <img ng-src="{{material.material.image}}" />
+            </div>
+
+            <div class="form-group">
+                <label for="article">Article:</label>
+                <input type="text" class="form-control" id="article" ng-model="material.material.article" disabled>
+            </div>
+            <div class="form-group">
+                <label for="article">Dimensions:</label>
+                <div>{{material.material.width || 0}} x {{material.material.height || 0}} x {{material.material.length || 0}} cm <br> Ø {{material.material.radius || 0}} cm</div>
+            </div>
+
+            <div class="form-group">
+                <label for="name">Name:</label>
+                <textarea type="text" class="form-control" id="name" ng-model="material.material.name" disabled></textarea>
+            </div>
+
+            <div class="form-group">
+                <label for="price">Price:</label>
+                <input type="number" class="form-control" id="price" ng-model="material.material.price" disabled>
+            </div>
+
+
+            <div class="form-group">
+                <label for="extraCost">Extra cost:</label>
+                <input type="number" class="form-control" id="extraCost" ng-model="material.material.extraCost" disabled>
+            </div>
+
+            <div class="form-group">
+                <label for="stock">Stock ordinary:</label>
+                <input type="number" class="form-control" id="stock" ng-model="material.material.stock.ordinary" disabled>
+            </div>
+            <div class="form-group">
+                <label for="improved">Stock improved:</label>
+                <input type="number" class="form-control" id="improved" ng-model="material.material.stock.improved" disabled>
+            </div>
+
+            <div class="form-group">
+                <label for="extraTime">Extra time:</label>
+                <input type="number" class="form-control" id="extraTime" ng-model="material.material.extraTime" disabled>
+            </div>
+
+        </form>
+    </div>
 
 
 </div>
+

@@ -8,12 +8,20 @@
   /** @ngInject */
   function tag($http) {
     return {
+      tagsList: tagsList,
       getTagsList: getTagsList,
       getTag: getTag,
       addTag: addTag,
       editTag: editTag,
       deleteTag: deleteTag
     };
+
+    function tagsList() {
+      return {
+        detail: '5b05d3da32a24f1577877cad',
+        product: '5b05b900cd3dd77faefb3f74'
+      }
+    }
 
     function getTagsList() {
       return $http.get('http://54.158.129.206:8080/tag')

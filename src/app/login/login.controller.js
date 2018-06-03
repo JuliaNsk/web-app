@@ -7,7 +7,7 @@
 
   /** @ngInject */
   function LoginController($rootScope) {
-    var vm = this;
+    let vm = this;
     $rootScope.test = true;
   }
 })();

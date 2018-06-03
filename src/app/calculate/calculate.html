@@ -1,17 +1,11 @@
 <div class="container">
     <h1>Calculate</h1>
-
-    <!--<select name="dropChange" ng-model="selectedItem" ng-change="update()">-->
-        <!--<option  ng-repeat="option in calculate.productsList" value="{{option.id}}">{{option.name}}</option>-->
-    <!--</select>-->
     <select name="dropChange" ng-model="selectedItem" ng-change="DropDownChnaged()">
-        <option value="M">Male</option>
-        <option value="F">Female</option>
         <option  ng-repeat="option in calculate.productsList" value="{{option._id}}">{{option.name}}</option>
     </select>
     <div counter  id="counter" value="calculate.quantity" ng-model="calculate.quantity" min="0"></div>
 
     <button type="submit" class="btn btn-default" ng-click="calculate.calculate()">Calculate</button>
 
-
+{{calculate.result}}
 </div>

@@ -53,7 +53,7 @@
     }
 
     function ediProduct(params) {
-      return $http.put('http://54.158.129.206:8080/product/' + params.id, params)
+      return $http.put('http://54.158.129.206:8080/product/' + params._id, params)
         .then(function (response) {
             return response.data.data;
         });
@@ -142,7 +142,7 @@
 
 
     function changeStockNumber(params) {
-      return $http.post('http://54.158.129.206:8080/product/' + params.productId + '/stock/')
+      return $http.post('http://54.158.129.206:8080/product/' + params.productId + '/stock', params)
         .then(function (response) {
             return response.data.data;
         });
@@ -154,7 +154,7 @@
     function estimateProduct(params) {
       return $http.post('http://54.158.129.206:8080/product/' + params.productId + '/estimate', params)
         .then(function (response) {
-            return response.data.data;
+            return response.data;
         });
     }
 

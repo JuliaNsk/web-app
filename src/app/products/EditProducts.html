@@ -1,4 +1,56 @@
 <div class="container">
-    <h1> Edit Products</h1>
+    <h1 class="page-title">Edit Product</h1>
+
+    <div class="product-description">
+
+        <h4>Product description</h4>
+
+        <form class="form-horizontal">
+            <div class="form-group">
+                <label for="photo">Photo:</label>
+                <input type="text" class="form-control" id="photo" ng-model="editProducts.product.image">
+            </div>
+            <div>
+                <img ng-src="{{editProducts.product.image}}" />
+            </div>
+            <div class="form-group">
+                <label for="article">Article:</label>
+                <input type="text" class="form-control" id="article" ng-model="editProducts.product.article">
+            </div>
+            <div class="form-group">
+                <label for="article">Measure:</label>
+                <input type="text" class="form-control" id="measure" ng-model="editProducts.product.measure">
+            </div>
+            <div class="form-group count-group">
+                <label for="width">Width:</label>
+                <div counter  id="width" value="editProducts.product.width" ng-model="editProducts.product.width" min="0"></div>
+            </div>
+            <div class="form-group count-group">
+                <label for="width">Height:</label>
+                <div counter  id="height" value="editProducts.product.height" ng-model="editProducts.product.height" min="0"></div>
+            </div>
+            <div class="form-group count-group">
+                <label for="length">length:</label>
+                <div counter  id="length" value="editProducts.product.length " ng-model="editProducts.product.length" min="0"></div>
+            </div>
+            <div class="form-group count-group">
+                <label for="radius">Radius:</label>
+                <div counter  id="radius" value="editProducts.product.radius" ng-model="editProducts.product.radius" min="0"></div>
+            </div>
+
+            <div class="form-group">
+                <label for="name">Name:</label>
+                <textarea type="text" class="form-control" id="name" ng-model="editProducts.product.name"></textarea>
+            </div>
+
+            <button type="submit" class="btn btn-default" ng-click="editProducts.edit()">Submit</button>
+        </form>
+    </div>
+    <div class="product-composition">
+
+        <h4>product composition</h4>
+
+    </div>
 
 </div>
+
