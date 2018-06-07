@@ -10,13 +10,13 @@
     let vm = this;
     getTestList();
     function getTestList() {
-      return test.getTestList()
-          .then(function (products) {
-
-          })
-          .catch(function (err) {
-            console.log(err)
-          })
+      // return test.getTestList()
+      //     .then(function (products) {
+      //
+      //     })
+      //     .catch(function (err) {
+      //       console.log(err)
+      //     })
     }
   }
 })();
