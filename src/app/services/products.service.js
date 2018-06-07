@@ -71,7 +71,7 @@
 
 
     function addMaterialToProduct(params) {
-      return $http.post('http://54.158.129.206:8080/product/' + params.productId + '/material/' + params.materialId)
+      return $http.post('http://54.158.129.206:8080/product/' + params.productId + '/material/' + params.materialId, params)
         .then(function (response) {
             return response.data.data;
         });

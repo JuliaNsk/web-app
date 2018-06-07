@@ -35,8 +35,9 @@
 
                     <td>
                         <table>
-                            <tr>
-                                <td class="dotteds">Ordinary</td>
+                            <tr ng-repeat="material in detail.materials">
+                                <td class="dotteds">{{material._id}}</td>
+                                <td>{{material.quantity}}</td>
                             </tr>
                         </table>
 
