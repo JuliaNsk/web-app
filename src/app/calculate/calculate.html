@@ -1,11 +1,70 @@
-<div class="container">
-    <h1>Calculate</h1>
-    <select name="dropChange" ng-model="selectedItem" ng-change="DropDownChnaged()">
-        <option  ng-repeat="option in calculate.productsList" value="{{option._id}}">{{option.name}}</option>
-    </select>
-    <div counter  id="counter" value="calculate.quantity" ng-model="calculate.quantity" min="0"></div>
+<div class="container estimate">
+    <h1>Production estimate</h1>
 
-    <button type="submit" class="btn btn-default" ng-click="calculate.calculate()">Calculate</button>
+    <div class="left-block">
+        <h3>Input area:</h3>
 
-{{calculate.result}}
+        <div class="input-wrapper">
+            <label>1. Choose the product or material:</label>
+            <select name="dropChange" ng-model="selectedItem" ng-change="DropDownChnaged()">
+                <option  ng-repeat="option in calculate.productsList" value="{{option._id}}">{{option.name}}</option>
+            </select>
+        </div>
+
+        <div class="input-wrapper">
+            <label>2. Enter required count of production lot:</label>
+            <div counter  id="counter" value="calculate.quantity" ng-model="calculate.quantity" min="0"></div>
+        </div>
+
+        <button type="submit" class="btn btn-default" ng-click="calculate.calculate()">Calculate estimate</button>
+    </div>
+
+    <div class="right-block">
+        <h3>Production estimate</h3>
+
+        <div class="estimate-empty" ng-if="!calculate.result">
+            <div class="estimate-empty-text">Firstly, please enter requested <span class="bold">material or product title and required quantity</span> of production.</div>
+        </div>
+        <div class="estimate-item" ng-if="calculate.result">
+            <div class="estimate-item-img">
+                Photo
+
+            </div>
+            <div class="estimate-item-desc">
+                <h4>
+                    Product article here
+                </h4>
+
+                <div class="input-wrapper">
+                    <label>Production time:</label>
+                    <input type="text" value="{{calculate.result.time}}" disabled>
+                </div>
+
+                <div class="input-wrapper">
+                    <label>Production cost:</label>
+                    <input type="text" value="{{calculate.result.cost}}" disabled>
+                </div>
+
+                <div class="input-wrapper">
+                    <label></label>
+                    <button style="display: none;"></button>
+                </div>
+
+                <div class="input-wrapper">
+                    <label>Required Quantity:</label>
+                    <input type="text" value="{{calculate.result.requiredQuantity}}" disabled>
+                </div>
+
+                <div class="input-wrapper">
+                    <label>In stock for now:</label>
+                    <input type="text" value="{{calculate.result.currentStock}}" disabled>
+                </div>
+
+                <div class="input-wrapper">
+                    <div class="notification">Materials in a suffcient quantity for production.</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
 </div>

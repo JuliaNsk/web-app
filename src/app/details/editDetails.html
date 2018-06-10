@@ -50,26 +50,37 @@
 
         <h4>Detail composition</h4>
 
-        <div ng-repeat="material in editDetails.materialsList">
-            <div>
+        <div class="item" ng-repeat="material in editDetails.materialsList" ng-if="material.id">
+            <div class="item-img">
                 <img ng-src="{{editDetails.getMaterial(material).image}}" width="100" height="100">
             </div>
-            <div>
+            <h5 class="item-name">
                 {{editDetails.getMaterial(material).name}}
-            </div>
-            <div>
-                <input ng-model="material.quantity">
-            </div>
-            <div>
-                time
-                <input ng-model="material.time">
-            </div>
-            <div>
-                cost
-                <input ng-model="material.cost">
-            </div>
-            <div>
-                <input type="checkbox" ng-model="material.isImproved">
+            </h5>
+            <div class="item-desc">
+                <div>
+                    <span>measure:</span> {{editDetails.getMaterial(material).measure}}
+                </div>
+                <div>
+                    <span>price:</span> {{editDetails.getMaterial(material).price}}
+                </div>
+                <div>
+                    <span>count:</span>
+                    <input counter ng-model="material.quantity">
+                </div>
+                <div>
+                    <span>time:</span>
+                    <input counter ng-model="material.time">
+                </div>
+                <div>
+                    <span>cost:</span>
+                    <input counter ng-model="material.cost">
+                </div>
+
+                <!--
+                <div>
+                    <input type="checkbox" ng-model="material.isImproved">
+                </div>-->
             </div>
         </div>
         <div class="form-group">

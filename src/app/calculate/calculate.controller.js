@@ -27,11 +27,24 @@
           return products.estimateProduct({productId: $scope.selected, quantity: vm.quantity})
               .then(function (result) {
                  vm.result = result;
+                  //getProduct(result._id);
               })
               .catch(function (err) {
                   console.log(err)
               })
       };
+
+
+      function getProduct(id) {
+          return products.getProduct(id)
+              .then(function (product) {
+                  vm.product = product;
+                  vm.product.price = parseFloat(vm.product.price)
+              })
+              .catch(function (err) {
+                  console.log(err)
+              })
+      }
 
       $scope.DropDownChnaged = function () {
           $scope.selected = $scope.selectedItem;
